@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: #f5f8fa;
   color: #1da1f2;
 }
@@ -16,51 +16,90 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #00acee;
-  color: #fff;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e1e8ed;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #1da1f2;
+  text-decoration: none;
 }
 
-.navLinks {
+.sidebar {
+  width: 250px;
+  padding: 1rem;
+  position: fixed;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  background-color: #f5f8fa;
+  overflow-y: auto;
+}
+
+.sidebar ul {
   list-style: none;
-  display: flex;
+  padding: 0;
+  margin: 0;
 }
 
-.navLinks li {
-  margin-left: 1rem;
+.sidebar li {
+  margin-bottom: 0.5rem;
 }
 
-.userInfo {
-  display: flex;
-  align-items: center;
+.sidebar a {
+  color: #1da1f2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.tweetButton {
+  background-color: #1da1f2;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tweetButton:hover {
+  background-color: #1a91da;
+}
+
+/* Additional styles for layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 56px;
+}
+
+.tweetContainer {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e1e8ed;
+  padding: 1rem;
+}
+
+.avatarContainer {
+  margin-right: 1rem;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-right: 0.5rem;
-}
-
-.username {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-/* Tweet styles */
-.tweetContainer {
-  display: flex;
-  padding: 1rem;
-  border-bottom: 1px solid #e1e8ed;
-}
-
-.avatarContainer {
-  margin-right: 1rem;
 }
 
 .tweetContent {
@@ -93,37 +132,4 @@ body {
   display: flex;
   justify-content: space-around;
   color: #657786;
-}
-
-/* TweetForm styles */
-.textArea {
-  width: 100%;
-  min-height: 100px;
-  resize: none;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-button {
-  background-color: #1da1f2;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #1a91da;
-}
-
-/* Additional styles for layout */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
 }
