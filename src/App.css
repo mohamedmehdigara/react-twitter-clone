@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f8fa;
+  color: #1da1f2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar styles */
+.navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background-color: #00acee;
+  color: #fff;
+  padding: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navLinks {
+  list-style: none;
+  display: flex;
+}
+
+.navLinks li {
+  margin-left: 1rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.username {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Tweet styles */
+.tweetContainer {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.avatarContainer {
+  margin-right: 1rem;
+}
+
+.tweetContent {
+  flex: 1;
+}
+
+.userInfo {
+  margin-bottom: 0.5rem;
+}
+
+.username {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.displayName {
+  color: #657786;
+  margin-right: 0.5rem;
+}
+
+.timestamp {
+  color: #657786;
+}
+
+.tweetText {
+  margin-bottom: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  color: #657786;
+}
+
+/* TweetForm styles */
+.textArea {
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #1a91da;
+}
+
+/* Additional styles for layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
 }
