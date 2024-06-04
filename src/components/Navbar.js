@@ -35,6 +35,7 @@ const NavLink = styled(Link)`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  transition: opacity 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.8;
@@ -55,7 +56,11 @@ const TweetButton = styled.button`
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #1b9bff;
+  }
 `;
 
 const UserInfo = styled.div`
@@ -75,7 +80,36 @@ const Username = styled.span`
   font-weight: bold;
 `;
 
+const Dropdown = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const DropdownContent = styled.div`
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+`;
+
+const DropdownLink = styled(NavLink)`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+`;
 const Navbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false); // State for dropdown visibility
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <NavContainer>
       <Sidebar>
@@ -87,22 +121,36 @@ const Navbar = () => {
           </li>
           {/* ... other navigation links */}
           <li>
-            <NavLink to="/more">
-              <Icon className="fa fa-ellipsis-h" /> Plus
+            <NavLink to="/explore">
+              <Icon className="fa fa-hashtag" /> Explorer
             </NavLink>
           </li>
+          {/* ... other navigation links */}
+          <li>
+            <Dropdown onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+              <NavLink to="/more">
+                <Icon className="fa fa-ellipsis-h" /> Plus
+              </NavLink>
+              {isOpen && (
+                <DropdownContent>
+                  <DropdownLink to="/settings">
+                    <Icon className="fa fa-cog" /> Paramètres
+                  </DropdownLink>
+                  <DropdownLink to="/help">
+                    <Icon className="fa fa-question-circle" /> Aide
+                  </DropdownLink>
+                  {/* More dropdown links */}
+                  <DropdownLink to="/profile">
+                    <Icon className="fa fa-user" /> Profil
+                  </DropdownLink>
+                  <DropdownLink to="/logout">
+                    <Icon className="fa fa-sign-out" /> Se déconnecter
+                  </DropdownLink>
+                </DropdownContent>
+              )}
+            </Dropdown>
+          </li>
         </NavLinks>
-        <li>
-  <NavLink to="/settings">
-    <Icon className="fa fa-cog" /> Paramètres
-  </NavLink>
-</li>
-<li>
-  <NavLink to="/help">
-    <Icon className="fa fa-question-circle" /> Aide
-  </NavLink>
-</li>
-
       </Sidebar>
 
       {/* User Info (Placeholder) */}
