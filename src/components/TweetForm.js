@@ -1,5 +1,32 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
+const TextArea = styled.textarea`
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+`;
+
+const TweetButton = styled.button`
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #1b9bff;
+  }
+`;
 const TweetForm = ({ addTweet }) => {
   const [text, setText] = useState('');
 
@@ -35,15 +62,14 @@ const TweetForm = ({ addTweet }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea
+      <TextArea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="What's happening?"
-        maxLength={280} // Optional: Limit tweet length to 280 characters (Twitter's character limit)
+        maxLength={280}
         required
-        style={styles.textArea}
       />
-      <button type="submit">Tweet</button>
+      <TweetButton type="submit">Tweet</TweetButton>
     </form>
   );
 };

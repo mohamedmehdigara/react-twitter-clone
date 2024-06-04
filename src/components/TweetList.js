@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 import Tweet from './Tweet';
+import styled from 'styled-components';
+
+const TweetContainer = styled.div`
+  border-bottom: 1px solid #e1e8ed;
+  padding: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const Actions = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+`;
 
 const TweetList = ({ tweets }) => {
   const [tweetData, setTweetData] = useState(tweets);
@@ -23,24 +36,16 @@ const TweetList = ({ tweets }) => {
   return (
     <div>
       {tweetData.map((tweet) => (
-        <div key={tweet.id}>
+        <TweetContainer key={tweet.id}>
           <Tweet tweet={tweet} />
-          <div style={styles.actions}>
+          <Actions>
             <button onClick={() => handleLike(tweet.id)}>Like</button>
             <button onClick={() => handleRetweet(tweet.id)}>Retweet</button>
-          </div>
-        </div>
+          </Actions>
+        </TweetContainer>
       ))}
     </div>
   );
 };
 
 export default TweetList;
-
-const styles = {
-  actions: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    padding: '0.5rem',
-  },
-};
