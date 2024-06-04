@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import DropdownMenu from './DropdownMenu';
+import SearchBar from './SearchBar';
 
 
 const NavContainer = styled.nav`
@@ -122,6 +123,7 @@ const Navbar = () => {
       </UserInfo>
       <TweetButton onClick={() => navigate('/tweet')}>Tweeter</TweetButton>
       <DropdownMenu label="More" items={navigationLinks[2].items} />
+      <SearchBar/>
 
     </NavContainer>
   );

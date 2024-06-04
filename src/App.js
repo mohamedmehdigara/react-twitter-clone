@@ -26,10 +26,13 @@ const App = () => {
     setTweets([...tweets, tweet]);
   };
 
+ 
+
   return (
     <Router>
       <div>
         <Navbar />
+
         <Routes>
           <Route exact path="/" element={<TweetForm addTweet={addTweet} />}/>
 
