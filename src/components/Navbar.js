@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavContainer = styled.nav`
@@ -106,7 +106,11 @@ const DropdownLink = styled(NavLink)`
 `;
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false); // State for dropdown visibility
+  const navigate = useNavigate(); // Hook for programmatic navigation
 
+  const handleExploreClick = () => {
+    navigate('/explore'); // Programmatically navigate to Explore route
+  };
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -121,7 +125,7 @@ const Navbar = () => {
           </li>
           {/* ... other navigation links */}
           <li>
-            <NavLink to="/explore">
+          <NavLink to="/Explore">
               <Icon className="fa fa-hashtag" /> Explorer
             </NavLink>
           </li>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import TweetForm from './components/TweetForm';
 import TweetList from './components/TweetList';
+import Explore from './components/Explore';
 import axios from 'axios';
 import "./App.css";
 
@@ -32,7 +33,8 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<TweetForm addTweet={addTweet} />}/>
 
-            
+          <Route path="/Explore" element={<Explore />} />
+
           <Route path="tweetlist" element={<TweetList tweets={tweets} />}/>
           {/* Add more routes for other pages */}
         </Routes>
