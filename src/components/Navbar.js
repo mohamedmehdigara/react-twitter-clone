@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 const NavContainer = styled.nav`
-  display: flex;
-  justify-content: space-between;
+  display: flex; /* Change to flex for horizontal layout */
+  justify-content: space-between; /* Distribute elements horizontally */
   align-items: center;
   background-color: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -16,30 +17,11 @@ const NavContainer = styled.nav`
   z-index: 100;
 `;
 
-const Sidebar = styled.div`
-  width: 250px;
-  padding: 1rem;
-`;
-
 const NavLinks = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-`;
-
-const NavLink = styled(Link)`
-  color: #1da1f2;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  transition: opacity 0.2s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  display: flex; /* Display links horizontally */
 `;
 
 const Icon = styled.i`
@@ -80,98 +62,61 @@ const Username = styled.span`
   font-weight: bold;
 `;
 
-const Dropdown = styled.div`
-  position: relative;
-  display: inline-block;
-`;
 
-const DropdownContent = styled.div`
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-`;
-
-const DropdownLink = styled(NavLink)`
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-
-  &:hover {
-    background-color: #f1f1f1;
-  }
-`;
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false); // State for dropdown visibility
   const navigate = useNavigate(); // Hook for programmatic navigation
 
-  const handleExploreClick = () => {
-    navigate('/explore'); // Programmatically navigate to Explore route
-  };
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
   return (
     <NavContainer>
-      <Sidebar>
-        <NavLinks>
-          <li>
-            <NavLink to="/">
-              <Icon className="fa fa-home" /> Accueil
-            </NavLink>
-          </li>
-          {/* ... other navigation links */}
-          <li>
-          <NavLink to="/Explore">
-              <Icon className="fa fa-hashtag" /> Explorer
-            </NavLink>
-          </li>
-          {/* ... other navigation links */}
-          <li>
-              <NavLink to="/more">
-                <Icon className="fa fa-ellipsis-h" /> Plus
-              </NavLink>
-          </li>
-          <li>    
-                  <NavLink to="/settings">
-                    <Icon className="fa fa-cog" /> Paramètres
-                  </NavLink>
-          </li> 
-          <li>   
-                  <NavLink to="/help">
-                    <Icon className="fa fa-question-circle" /> Aide
-                 
-                 </NavLink>
-                
-          </li> 
-          <li> 
-                  <NavLink to="/profile">
-                    <Icon className="fa fa-user" /> Profil
-                  </NavLink>
-          </li>      
-          <li>     <NavLink to="/logout">
-                    <Icon className="fa fa-sign-out" /> Se déconnecter
-                  </NavLink>
-          </li>      
-                
-              
-            
-          
-        </NavLinks>
-      </Sidebar>
-
-      {/* User Info (Placeholder) */}
+      <NavLinks>
+        <li>
+          <NavLink to="/">
+            <Icon className="fa fa-home" /> Accueil
+          </NavLink>
+        </li>
+        {/* ... other navigation links */}
+        <li>
+          <NavLink to="/explore">
+            <Icon className="fa fa-hashtag" /> Explorer
+          </NavLink>
+        </li>
+        {/* ... other navigation links */}
+        <li>
+          <NavLink to="/more">
+            <Icon className="fa fa-ellipsis-h" /> Plus
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/settings">
+            <Icon className="fa fa-cog" /> Paramètres
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/help">
+            <Icon className="fa fa-question-circle" /> Aide
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile">
+            <Icon className="fa fa-user" /> Profil
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/logout">
+            <Icon className="fa fa-sign-out" /> Se déconnecter
+          </NavLink>
+        </li>
+      </NavLinks>
       <UserInfo>
         <Avatar src="https://via.placeholder.com/40" alt="User Avatar" />
         <Username>JohnDoe123</Username>
       </UserInfo>
-
-      <TweetButton>Tweeter</TweetButton>
+      <TweetButton onClick={() => navigate('/tweet')}>Tweeter</TweetButton>
     </NavContainer>
   );
 };
+
+// You might need to adjust these imports depending on your project structure
+
 
 export default Navbar;

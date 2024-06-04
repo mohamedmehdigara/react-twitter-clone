@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Styled Components (Optional)
+
+/*
 const ExploreContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +11,11 @@ const ExploreContainer = styled.div`
   padding: 1rem;
 `;
 
-const TrendingTopic = styled.div`
+
+*/
+const Explore = () => {
+
+  const TrendingTopic = styled.div`
   border: 1px solid #e1e8ed;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
@@ -34,8 +40,6 @@ const SuggestedUser = styled.div`
     margin-right: 1rem;
   }
 `;
-
-const Explore = () => {
   // Sample trending topics data
   const trendingTopics = [
     { id: 1, hashtag: 'Technology', tweetCount: 10000 },
@@ -51,7 +55,7 @@ const Explore = () => {
   ];
 
   return (
-    <ExploreContainer>
+    <div>
       <h2>Trending Topics</h2>
       {trendingTopics.map((topic) => (
         <TrendingTopic key={topic.id}>
@@ -66,7 +70,7 @@ const Explore = () => {
           <span>{user.username}</span>
         </SuggestedUser>
       ))}
-    </ExploreContainer>
+    </div>
   );
 };
 
