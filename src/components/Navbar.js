@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import DropdownMenu from './DropdownMenu';
 
 
 const NavContainer = styled.nav`
@@ -63,6 +64,18 @@ const Username = styled.span`
 `;
 
 
+const navigationLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  {
+    label: 'More',
+    items: [
+      { label: 'Settings', href: '/settings' },
+      { label: 'Help', href: '/help' },
+    ],
+  },
+];
+
 const Navbar = () => {
   const navigate = useNavigate(); // Hook for programmatic navigation
 
@@ -81,11 +94,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         {/* ... other navigation links */}
-        <li>
-          <NavLink to="/more">
-            <Icon className="fa fa-ellipsis-h" /> Plus
-          </NavLink>
-        </li>
+       
         <li>
           <NavLink to="/settings">
             <Icon className="fa fa-cog" /> Paramètres
@@ -112,6 +121,8 @@ const Navbar = () => {
         <Username>JohnDoe123</Username>
       </UserInfo>
       <TweetButton onClick={() => navigate('/tweet')}>Tweeter</TweetButton>
+      <DropdownMenu label="More" items={navigationLinks[2].items} />
+
     </NavContainer>
   );
 };
