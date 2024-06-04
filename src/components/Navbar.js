@@ -127,29 +127,35 @@ const Navbar = () => {
           </li>
           {/* ... other navigation links */}
           <li>
-            <Dropdown onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
               <NavLink to="/more">
                 <Icon className="fa fa-ellipsis-h" /> Plus
               </NavLink>
-              {isOpen && (
-                <DropdownContent>
-                  <DropdownLink to="/settings">
-                    <Icon className="fa fa-cog" /> Paramètres
-                  </DropdownLink>
-                  <DropdownLink to="/help">
-                    <Icon className="fa fa-question-circle" /> Aide
-                  </DropdownLink>
-                  {/* More dropdown links */}
-                  <DropdownLink to="/profile">
-                    <Icon className="fa fa-user" /> Profil
-                  </DropdownLink>
-                  <DropdownLink to="/logout">
-                    <Icon className="fa fa-sign-out" /> Se déconnecter
-                  </DropdownLink>
-                </DropdownContent>
-              )}
-            </Dropdown>
           </li>
+          <li>    
+                  <NavLink to="/settings">
+                    <Icon className="fa fa-cog" /> Paramètres
+                  </NavLink>
+          </li> 
+          <li>   
+                  <NavLink to="/help">
+                    <Icon className="fa fa-question-circle" /> Aide
+                 
+                 </NavLink>
+                
+          </li> 
+          <li> 
+                  <NavLink to="/profile">
+                    <Icon className="fa fa-user" /> Profil
+                  </NavLink>
+          </li>      
+          <li>     <NavLink to="/logout">
+                    <Icon className="fa fa-sign-out" /> Se déconnecter
+                  </NavLink>
+          </li>      
+                
+              
+            
+          
         </NavLinks>
       </Sidebar>
 
