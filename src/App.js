@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import TweetForm from './components/TweetForm';
 import TweetList from './components/TweetList';
 import Explore from './components/Explore';
+import Settings from './components/Settings';
 import axios from 'axios';
 import "./App.css";
 
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/Explore" element={<Explore />} />
 
           <Route path="tweetlist" element={<TweetList tweets={tweets} />}/>
+          <Route path="/Settings" element={<Settings />} />
           {/* Add more routes for other pages */}
         </Routes>
       </div>

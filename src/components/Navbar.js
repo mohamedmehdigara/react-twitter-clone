@@ -95,9 +95,13 @@ const Navbar = () => {
           </NavLink>
         </li>
         {/* ... other navigation links */}
-       
         <li>
-          <NavLink to="/settings">
+          <NavLink to="/more">
+            <Icon className="fa fa-ellipsis-h" /> Plus
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Settings">
             <Icon className="fa fa-cog" /> Paramètres
           </NavLink>
         </li>
@@ -122,14 +126,10 @@ const Navbar = () => {
         <Username>JohnDoe123</Username>
       </UserInfo>
       <TweetButton onClick={() => navigate('/tweet')}>Tweeter</TweetButton>
-      <DropdownMenu label="More" items={navigationLinks[2].items} />
-      <SearchBar/>
-
     </NavContainer>
   );
 };
 
-// You might need to adjust these imports depending on your project structure
-
+// ... other styled components (NavContainer, NavLinks, etc.)
 
 export default Navbar;
