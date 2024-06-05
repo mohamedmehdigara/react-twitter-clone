@@ -106,7 +106,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/help">
+          <NavLink to="/Help">
             <Icon className="fa fa-question-circle" /> Aide
           </NavLink>
         </li>
