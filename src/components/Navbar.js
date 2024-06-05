@@ -111,7 +111,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/profile">
+          <NavLink to="/Profile">
             <Icon className="fa fa-user" /> Profil
           </NavLink>
         </li>

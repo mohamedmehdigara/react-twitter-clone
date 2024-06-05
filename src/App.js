@@ -6,6 +6,7 @@ import TweetList from './components/TweetList';
 import Explore from './components/Explore';
 import Settings from './components/Settings';
 import Help from './components/Help';
+import Profile from './components/Profile';
 import axios from 'axios';
 import "./App.css";
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="tweetlist" element={<TweetList tweets={tweets} />}/>
           <Route path="/Settings" element={<Settings />} />
           <Route path="/Help" element={<Help />} /> {/* Added Help route */}
+          <Route path="/Profile" element={<Profile />} />
 
           {/* Add more routes for other pages */}
         </Routes>
