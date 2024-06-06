@@ -44,7 +44,7 @@ const App = () => {
           <Route path="tweetlist" element={<TweetList tweets={tweets} />}/>
           <Route path="/Settings" element={<Settings />} />
           <Route path="/Help" element={<Help />} /> {/* Added Help route */}
-          <Route path="/Profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
 
           {/* Add more routes for other pages */}
         </Routes>

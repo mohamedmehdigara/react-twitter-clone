@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Import Link for navigation
 
 const Profile = () => {
   const [userData, setUserData] = useState(null); // State for user data
 
-  
+  useEffect(() => {
+    // Simulate fetching user data from an API (replace with your actual logic)
+    const fetchData = async () => {
+      const response = await fetch('/api/user'); // Replace with your API endpoint
+      const data = await response.json();
+      setUserData(data);
+    };
+    fetchData();
+  }, []); // Empty dependency array to run only once on component mount
+
   if (!userData) return <p>Chargement du profil...</p>; // Loading message
 
   return (
@@ -15,7 +23,6 @@ const Profile = () => {
         <div>
           <h2>{userData.name}</h2>
           <p>@{userData.username}</p>
-          <Link to="/edit-profile">Modifier le profil</Link> {/* Link to edit profile */}
         </div>
       </UserInfo>
       <Stats>
@@ -32,7 +39,6 @@ const Profile = () => {
           <p>Abonnements</p>
         </StatItem>
       </Stats>
-      {/* ... Your components for displaying user's posts and other profile sections */}
     </ProfileContainer>
   );
 };

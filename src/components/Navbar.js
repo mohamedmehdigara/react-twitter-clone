@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import DropdownMenu from './DropdownMenu';
 import SearchBar from './SearchBar';
@@ -111,9 +111,9 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Profile">
+          <Link to="/profile">
             <Icon className="fa fa-user" /> Profil
-          </NavLink>
+          </Link>
         </li>
         <li>
           <NavLink to="/logout">
