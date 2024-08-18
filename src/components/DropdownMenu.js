@@ -1,20 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { DropdownContainer, DropdownButton, DropdownContent, DropdownItem } from './DropdownStyles';
 
-const DropdownMenu = ({ label, items }) => {
+const DropdownMenu = ({ label, items, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    setActiveIndex(0); // Reset active index when opening
   };
 
+  const handleKeyDown = (event) => {
+    if (isOpen) {
+      const { key } = event;
+      if (key === 'ArrowDown') {
+        setActiveIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 1));
+      } else if (key === 'ArrowUp') {
+        setActiveIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+      } else if (key === 'Escape' || key === 'Enter') {
+        toggleDropdown();
+      } else if (key === 'Tab') {
+        event.preventDefault(); // Prevent default tab behavior
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <DropdownContainer>
-      <DropdownButton onClick={toggleDropdown}>{label}</DropdownButton>
+    <DropdownContainer ref={dropdownRef}>
+      <DropdownButton onClick={toggleDropdown} onKeyDown={handleKeyDown}>
+        {label}
+      </DropdownButton>
       {isOpen && (
         <DropdownContent>
-          {items.map((item) => (
-            <DropdownItem key={item.value} href={item.href}>
+          {items.map((item, index) => (
+            <DropdownItem
+              key={item.value}
+              onClick={() => {
+                onSelect(item);
+                setIsOpen(false);
+              }}
+              tabIndex={index === activeIndex ? 0 : -1}
+              onKeyDown={handleKeyDown}
+            >
               {item.label}
             </DropdownItem>
           ))}
@@ -24,43 +71,6 @@ const DropdownMenu = ({ label, items }) => {
   );
 };
 
-const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const DropdownButton = styled.button`
-  background: transparent;
-  border: none;
-  color: inherit;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const DropdownContent = styled.ul`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  padding: 0.5rem;
-  list-style: none;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-`;
-
-const DropdownItem = styled.a`
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #333;
-  text-decoration: none;
-
-  &:hover {
-    background-color: #f1f1f1;
-  }
-`;
+// ... other styled components
 
 export default DropdownMenu;
