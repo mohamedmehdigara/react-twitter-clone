@@ -116,6 +116,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <NavLink to="/AboutPage">
+            <Icon  /> About 
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/logout">
             <Icon className="fa fa-sign-out" /> Se déconnecter
           </NavLink>

@@ -52,7 +52,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/trends" element={<Trends />} />  {/* Added Trends route */}
           <Route path="/direct-messages" element={<DirectMessages />} />  {/* Added DirectMessages route */}
-          <Route path="/about" element={<AboutPage />} />  {/* Added AboutPage route */}
+          <Route path="/AboutPage" element={<AboutPage />} />  {/* Added AboutPage route */}
           <Route path="/terms" element={<TermsAndConditions />} />  {/* Added TermsAndConditions route */}
           <Route path="/contact" element={<ContactUs />} />  {/* Added ContactUs route */}
           {/* Add more routes for other pages */}
