@@ -85,13 +85,13 @@ const Navbar = () => {
       <NavLinks>
         <li>
           <NavLink to="/">
-            <Icon className="fa fa-home" /> Accueil
+            <Icon className="fa fa-home" /> Home
           </NavLink>
         </li>
         {/* ... other navigation links */}
         <li>
           <NavLink to="/explore">
-            <Icon className="fa fa-hashtag" /> Explorer
+            <Icon className="fa fa-hashtag" /> Explore
           </NavLink>
         </li>
         {/* ... other navigation links */}
@@ -102,12 +102,17 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink to="/Settings">
-            <Icon className="fa fa-cog" /> Paramètres
+            <Icon className="fa fa-cog" /> Settings
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/UserSettings">
+            <Icon className="fa fa-cog" /> UserSettings
           </NavLink>
         </li>
         <li>
           <NavLink to="/Help">
-            <Icon className="fa fa-question-circle" /> Aide
+            <Icon className="fa fa-question-circle" /> Help
           </NavLink>
         </li>
         <li>
@@ -122,7 +127,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink to="/logout">
-            <Icon className="fa fa-sign-out" /> Se déconnecter
+            <Icon className="fa fa-sign-out" /> Sign out
           </NavLink>
         </li>
       </NavLinks>

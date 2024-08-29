@@ -9,10 +9,10 @@ import Help from './components/Help';
 import Profile from './components/Profile';
 import Trends from './components/Trends'; // Added Trends component
 import DirectMessages from './components/DirectMessages'; // Added DirectMessages component
-import UserSettings from './components/UserSettings'; // Added UserSettings component
 import AboutPage from './components/AboutPage'; // Added AboutPage component
 import TermsAndConditions from './components/TermsAndConditions'; // Added TermsAndConditions component
 import ContactUs from './components/ContactUs'; // Added ContactUs component
+import UserSettings from "./components/UserSettings";
 import axios from 'axios';
 import './App.css';
 
@@ -44,15 +44,14 @@ const App = () => {
           <Route exact path="/" element={<TweetForm addTweet={addTweet} />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/tweetlist" element={<TweetList tweets={tweets} />} />
-          <Route path="/settings" element={<Settings />}>
+          <Route path="/settings" element={<Settings />}/>
             {/* Nest routes for user settings within Settings */}
-            <Route path="/settings/user" element={<UserSettings />} />
-          </Route>
+          <Route path="/UserSettings" element={<UserSettings />} />
           <Route path="/help" element={<Help />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/trends" element={<Trends />} />  {/* Added Trends route */}
           <Route path="/direct-messages" element={<DirectMessages />} />  {/* Added DirectMessages route */}
-          <Route path="/AboutPage" element={<AboutPage />} />  {/* Added AboutPage route */}
+          <Route path="/About" element={<AboutPage />} />  {/* Added AboutPage route */}
           <Route path="/terms" element={<TermsAndConditions />} />  {/* Added TermsAndConditions route */}
           <Route path="/contact" element={<ContactUs />} />  {/* Added ContactUs route */}
           {/* Add more routes for other pages */}
