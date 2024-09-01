@@ -24,6 +24,21 @@ const NavLinks = styled.ul`
   padding: 0;
   margin: 0;
   display: flex; /* Display links horizontally */
+  background: #1da1f2;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  margin-top: 1rem;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #1b9bff;
+  };
+  align-items: space-between
 `;
 
 const Icon = styled.i`
